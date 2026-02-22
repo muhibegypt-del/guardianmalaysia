@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-guardian-black: #1D1D1D;
+  --color-guardian-red: #DC5D54;
+  --color-guardian-crimson: #ED1C24;
+  --color-guardian-offwhite: #F7F7F7;
+
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  --animate-marquee: marquee 40s linear infinite;
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fade-in animation base state */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered fade-in for grid children */
+.fade-in-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-stagger.visible > *:nth-child(1) { transition-delay: 0ms; opacity: 1; transform: translateY(0); }
+.fade-in-stagger.visible > *:nth-child(2) { transition-delay: 100ms; opacity: 1; transform: translateY(0); }
+.fade-in-stagger.visible > *:nth-child(3) { transition-delay: 200ms; opacity: 1; transform: translateY(0); }
+.fade-in-stagger.visible > *:nth-child(4) { transition-delay: 300ms; opacity: 1; transform: translateY(0); }
+.fade-in-stagger.visible > *:nth-child(5) { transition-delay: 400ms; opacity: 1; transform: translateY(0); }
+.fade-in-stagger.visible > *:nth-child(6) { transition-delay: 500ms; opacity: 1; transform: translateY(0); }
+.fade-in-stagger.visible > *:nth-child(7) { transition-delay: 600ms; opacity: 1; transform: translateY(0); }
+.fade-in-stagger.visible > *:nth-child(8) { transition-delay: 700ms; opacity: 1; transform: translateY(0); }
+.fade-in-stagger.visible > *:nth-child(9) { transition-delay: 800ms; opacity: 1; transform: translateY(0); }
+
+/* Marquee pause on hover */
+.marquee-strip:hover {
+  animation-play-state: paused;
+}
+
+/* Initial page load animation */
+.page-load {
+  animation: pageLoad 0.8s ease-out forwards;
+}
+
+@keyframes pageLoad {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
