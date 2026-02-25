@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 
-const images = Array.from({ length: 12 }, (_, i) => ({
-  src: `/images/marquee-${i + 1}.jpg`,
-  /* REPLACE: Authentic photos — kids in gis, training moments, community, coaches, mats */
-  alt: `Guardian Malaysia training moment ${i + 1}`,
+const validIndices = [1, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const images = validIndices.map((num) => ({
+  src: `/images/marquee-${num}.jpg`,
+  alt: `Guardian Malaysia training moment ${num}`,
 }));
 
 export default function ImageMarquee() {

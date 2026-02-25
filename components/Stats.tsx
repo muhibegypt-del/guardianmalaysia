@@ -23,7 +23,7 @@ export default function Stats() {
             <p className="text-4xl font-black text-guardian-crimson sm:text-5xl lg:text-6xl">
               {stat.value}
             </p>
-            <p className="mt-2 text-sm font-medium text-white/70 uppercase tracking-wider">
+            <p className="mt-3 text-sm font-bold text-white/70 uppercase tracking-widest">
               {stat.label}
             </p>
           </div>

@@ -1,12 +1,11 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Stats from "@/components/Stats";
-import ImageMarquee from "@/components/ImageMarquee";
-import Mission from "@/components/Mission";
+import Problem from "@/components/Problem";
 import About from "@/components/About";
+import Plan from "@/components/Plan";
+import Stakes from "@/components/Stakes";
 import Gallery from "@/components/Gallery";
-import CTA from "@/components/CTA";
-import Partners from "@/components/Partners";
+import ImageMarquee from "@/components/ImageMarquee";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -15,13 +14,12 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <Stats />
         <ImageMarquee />
-        <Mission />
+        <Problem />
         <About />
+        <Plan />
+        <Stakes />
         <Gallery />
-        <CTA />
-        <Partners />
       </main>
       <Footer />
     </>

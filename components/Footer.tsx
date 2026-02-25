@@ -9,51 +9,44 @@ export default function Footer() {
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {/* Logo & tagline */}
           <div className="lg:col-span-2">
-            {/* REPLACE: Guardian Malaysia logo */}
-            <Image
-              src="/images/logo.png"
-              alt="Guardian Malaysia"
-              width={160}
-              height={40}
-              className="h-10 w-auto"
-            />
-            <p className="mt-4 max-w-sm text-sm text-white/50 leading-relaxed">
-              {/* REPLACE: Tagline / short description */}
-              Guardian Malaysia is a 501(c)(3) non-profit providing free jiu
-              jitsu scholarships to underserved youth. Part of the global
-              Guardian network.
+            {/* Logo */}
+            <a href="#" className="flex-shrink-0 flex items-center gap-2 mb-4">
+              <span className="text-lg sm:text-xl font-black tracking-[0.2em] text-white uppercase">
+                Guardian
+              </span>
+              <span className="text-lg sm:text-xl font-medium tracking-[0.2em] text-white/70 uppercase">
+                Malaysia
+              </span>
+            </a>
+            <p className="mt-4 max-w-sm text-sm text-white/50 leading-relaxed font-medium">
+              Guardian is a registered 501(c)(3) nonprofit. Every donation is tax-deductible.
             </p>
           </div>
 
           {/* Quick links */}
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wider text-white/40">
-              Quick Links
+              Navigation
             </h3>
             <ul className="mt-4 space-y-3">
               <li>
-                <a href="#about" className="text-sm text-white/60 hover:text-white transition-colors">
-                  About
+                <a href="/partners" className="text-sm text-white/60 hover:text-white transition-colors">
+                  Our Partners
                 </a>
               </li>
               <li>
-                <a href="#mission" className="text-sm text-white/60 hover:text-white transition-colors">
-                  Mission
+                <a href="https://www.guardiangym.org/" target="_blank" rel="noopener noreferrer" className="text-sm text-white/60 hover:text-white transition-colors">
+                  About Guardian Gym
                 </a>
               </li>
               <li>
-                <a href="#gallery" className="text-sm text-white/60 hover:text-white transition-colors">
-                  Gallery
+                <a href="mailto:info@guardianmalaysia.com" className="text-sm text-white/60 hover:text-white transition-colors">
+                  Contact
                 </a>
               </li>
               <li>
-                <a
-                  href="https://givebutter.com/guardianmalaysia"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-white/60 hover:text-white transition-colors"
-                >
-                  Donate
+                <a href="#" className="text-sm text-white/60 hover:text-white transition-colors">
+                  Privacy Policy
                 </a>
               </li>
             </ul>

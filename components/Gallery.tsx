@@ -3,11 +3,32 @@
 import Image from "next/image";
 import { useFadeIn } from "@/hooks/useFadeIn";
 
-const images = Array.from({ length: 9 }, (_, i) => ({
-  src: `/images/gallery-${i + 1}.jpg`,
-  /* REPLACE: Community photos, training, events */
-  alt: `Guardian Malaysia community photo ${i + 1}`,
-}));
+const narrativeImages = [
+  {
+    src: "/images/gallery-8.jpg",
+    alt: "Focus and anticipation before the training session begins.",
+  },
+  {
+    src: "/images/marquee-4.jpg",
+    alt: "Elite coaches providing direct mentorship and breaking down techniques.",
+  },
+  {
+    src: "/images/gallery-3.jpg",
+    alt: "Students building resilience and testing their skills on the mat.",
+  },
+  {
+    src: "/images/gallery-7.jpg",
+    alt: "Shared exhaustion and quiet camaraderie between intense training rounds.",
+  },
+  {
+    src: "/images/gallery-9.jpg",
+    alt: "A team huddle reinforcing the core values of discipline and respect.",
+  },
+  {
+    src: "/images/gallery-2.jpg",
+    alt: "The expanding Guardian Malaysia family standing strong together.",
+  }
+];
 
 export default function Gallery() {
   const ref = useFadeIn({ stagger: true });
@@ -15,18 +36,21 @@ export default function Gallery() {
   return (
     <section id="gallery" className="bg-guardian-offwhite py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 className="mb-12 text-3xl font-black text-guardian-black sm:text-4xl lg:text-5xl">
-          Our Community
+        <p className="text-sm font-bold tracking-[0.3em] text-guardian-crimson uppercase mb-4">
+          The Community
+        </p>
+        <h2 className="mb-12 text-3xl font-black text-guardian-black sm:text-4xl lg:text-5xl tracking-tight">
+          See Your Impact
         </h2>
 
         <div
           ref={ref}
           className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
         >
-          {images.map((img, i) => (
+          {narrativeImages.map((img, i) => (
             <div
               key={i}
-              className="group relative aspect-[4/3] overflow-hidden rounded-lg"
+              className="group relative aspect-[4/3] overflow-hidden rounded-lg shadow-md"
             >
               <Image
                 src={img.src}

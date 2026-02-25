@@ -8,39 +8,38 @@ export default function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image */}
-      {/* REPLACE: Hero image — use a wide cinematic shot of kids training on mats */}
-      <Image
-        src="/images/hero.jpg"
-        alt="Youth jiu jitsu training on mats"
-        fill
-        className="object-cover"
-        priority
-        sizes="100vw"
+      {/* Background Image with Cinematic Filters */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat saturate-[0.8] contrast-[1.1] brightness-[0.9]"
+        style={{
+          backgroundImage: `url('/images/hero-featured.jpg')`,
+        }}
+        aria-label="Kids training jiu jitsu on the mat"
       />
-
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-guardian-black/60 via-guardian-black/50 to-guardian-black/80" />
+      {/* Base overlay */}
+      <div className="absolute inset-0 bg-black/40" />
+      {/* Vignette effect (darker edges) */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.85)_100%)]" />
 
       {/* Content */}
-      <div ref={ref} className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        <h1 className="text-5xl font-black leading-tight text-white sm:text-6xl lg:text-8xl tracking-tight">
-          Jiu Jitsu For All.
-        </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg text-white/80 sm:text-xl leading-relaxed">
-          {/* REPLACE: Subheadline — mission statement for Guardian Malaysia */}
-          Guardian Malaysia provides free jiu jitsu scholarships to underserved
-          youth, building confidence, discipline, and community through martial
-          arts.
+      <div ref={ref} className="relative z-10 mx-auto max-w-4xl px-6 text-center mt-12">
+        <p className="text-sm font-bold tracking-[0.3em] text-guardian-crimson uppercase mb-6">
+          Guardian Malaysia
         </p>
-        <div className="mt-10">
+        <h1 className="text-5xl font-black leading-tight text-white sm:text-6xl lg:text-7xl xl:text-8xl tracking-tight">
+          Give a kid a fighting chance.
+        </h1>
+        <p className="mx-auto mt-8 max-w-2xl text-lg text-white/80 sm:text-xl leading-relaxed font-medium">
+          Every child deserves a safe place to train, grow, and belong. No matter their background.
+        </p>
+        <div className="mt-12">
           <a
             href="https://givebutter.com/guardianmalaysia"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center rounded-sm bg-guardian-crimson px-10 py-4 text-lg font-bold text-white transition-all hover:bg-guardian-red hover:scale-105 active:scale-95 shadow-lg shadow-guardian-crimson/30"
+            className="inline-flex items-center rounded-sm bg-guardian-crimson px-12 py-5 text-lg font-bold tracking-widest uppercase text-white transition-all hover:bg-guardian-red hover:scale-105 active:scale-95 shadow-xl shadow-guardian-crimson/20"
           >
-            Donate Now
+            Sponsor a Kid
           </a>
         </div>
       </div>
