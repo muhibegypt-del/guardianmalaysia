@@ -11,16 +11,23 @@
   --animate-marquee: marquee 40s linear infinite;
 
   @keyframes marquee {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-50%); }
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
   }
 }
 
 /* Smooth scrolling & prevent horizontal overflow */
-html,
-body {
+html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+}
+
+body {
+  overflow-x: clip;
 }
 
 /* Fade-in animation base state */
@@ -36,21 +43,65 @@ body {
 }
 
 /* Staggered fade-in for grid children */
-.fade-in-stagger > * {
+.fade-in-stagger>* {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.fade-in-stagger.visible > *:nth-child(1) { transition-delay: 0ms; opacity: 1; transform: translateY(0); }
-.fade-in-stagger.visible > *:nth-child(2) { transition-delay: 100ms; opacity: 1; transform: translateY(0); }
-.fade-in-stagger.visible > *:nth-child(3) { transition-delay: 200ms; opacity: 1; transform: translateY(0); }
-.fade-in-stagger.visible > *:nth-child(4) { transition-delay: 300ms; opacity: 1; transform: translateY(0); }
-.fade-in-stagger.visible > *:nth-child(5) { transition-delay: 400ms; opacity: 1; transform: translateY(0); }
-.fade-in-stagger.visible > *:nth-child(6) { transition-delay: 500ms; opacity: 1; transform: translateY(0); }
-.fade-in-stagger.visible > *:nth-child(7) { transition-delay: 600ms; opacity: 1; transform: translateY(0); }
-.fade-in-stagger.visible > *:nth-child(8) { transition-delay: 700ms; opacity: 1; transform: translateY(0); }
-.fade-in-stagger.visible > *:nth-child(9) { transition-delay: 800ms; opacity: 1; transform: translateY(0); }
+.fade-in-stagger.visible>*:nth-child(1) {
+  transition-delay: 0ms;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-stagger.visible>*:nth-child(2) {
+  transition-delay: 100ms;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-stagger.visible>*:nth-child(3) {
+  transition-delay: 200ms;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-stagger.visible>*:nth-child(4) {
+  transition-delay: 300ms;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-stagger.visible>*:nth-child(5) {
+  transition-delay: 400ms;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-stagger.visible>*:nth-child(6) {
+  transition-delay: 500ms;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-stagger.visible>*:nth-child(7) {
+  transition-delay: 600ms;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-stagger.visible>*:nth-child(8) {
+  transition-delay: 700ms;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-stagger.visible>*:nth-child(9) {
+  transition-delay: 800ms;
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* Marquee pause on hover */
 .marquee-strip:hover {
@@ -66,6 +117,7 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
