@@ -16,9 +16,11 @@
   }
 }
 
-/* Smooth scrolling */
-html {
+/* Smooth scrolling & prevent horizontal overflow */
+html,
+body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* Fade-in animation base state */

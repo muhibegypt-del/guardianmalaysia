@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Logo & tagline */}
           <div className="lg:col-span-2">
             {/* Logo */}
-            <a href="#" className="flex-shrink-0 flex items-center gap-2 mb-4">
+            <a href="/" className="flex-shrink-0 flex items-center gap-2 mb-4">
               <span className="text-lg sm:text-xl font-black tracking-[0.2em] text-white uppercase">
                 Guardian
               </span>
@@ -36,7 +36,7 @@ export default function Footer() {
               </li>
               <li>
                 <a href="https://www.guardiangym.org/" target="_blank" rel="noopener noreferrer" className="text-sm text-white/60 hover:text-white transition-colors">
-                  About Guardian Gym
+                  About Guardian Project
                 </a>
               </li>
               <li>
@@ -122,7 +122,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="text-xs text-white/30 hover:text-white/60 transition-colors"
           >
-            guardiangym.org
+            guardianproject.org
           </a>
         </div>
       </div>

@@ -10,8 +10,8 @@ export default function CTA() {
     <section className="relative py-28 sm:py-36 overflow-hidden">
       {/* Background image */}
       <Image
-        src="/images/cta-bg.jpg"
-        alt="Jiu jitsu training action"
+        src="/images/gallery-2.jpg"
+        alt="Guardian Malaysia group photo"
         fill
         className="object-cover"
         sizes="100vw"

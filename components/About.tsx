@@ -4,7 +4,7 @@ import { useFadeIn } from "@/hooks/useFadeIn";
 
 const stats = [
   { value: "34", label: "Academies Worldwide" },
-  { value: "671", label: "Kids Currently Sponsored" },
+  { value: "929", label: "Kids Currently Sponsored" },
   { value: "100%", label: "Of Your Donation Reaches Kids" },
 ];
 
@@ -23,7 +23,7 @@ export default function About() {
             Mentorship through motion
           </h2>
           <p className="text-lg text-guardian-black/70 leading-[1.7] font-medium">
-            Guardian Malaysia is part of a global nonprofit with 34 academies worldwide, providing free jiu jitsu scholarships to underserved youth. Every ringgit you give goes directly to kids. Gis, mats, coaches, and a safe space to train. No overhead. No waste.
+            Guardian Malaysia is part of a global nonprofit providing free jiu jitsu scholarships to underserved youth across 34 academies worldwide, with 929 kids currently sponsored. Every ringgit you give goes directly to kids. Gis, mats, coaches, and a safe space to train. No overhead. No waste.
           </p>
         </div>
 

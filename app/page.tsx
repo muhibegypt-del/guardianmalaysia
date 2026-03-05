@@ -5,6 +5,7 @@ import About from "@/components/About";
 import Plan from "@/components/Plan";
 import Stakes from "@/components/Stakes";
 import Gallery from "@/components/Gallery";
+import CTA from "@/components/CTA";
 import ImageMarquee from "@/components/ImageMarquee";
 import Footer from "@/components/Footer";
 
@@ -21,6 +22,7 @@ export default function Home() {
         <Stakes />
         <Gallery />
       </main>
+      <CTA />
       <Footer />
     </>
   );

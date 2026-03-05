@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
+import { useEffect, useState, useCallback } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/#about" },
+  { label: "About", href: "/#guide" },
   { label: "Gallery", href: "/#gallery" },
   { label: "Partners", href: "/partners" },
 ];
@@ -13,6 +13,8 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -20,9 +22,58 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
+  const handleNavClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      setMobileOpen(false);
+
+      // If it's a hash link on the homepage
+      if (href.startsWith("/#")) {
+        e.preventDefault();
+        const id = href.replace("/#", "");
+
+        if (pathname === "/") {
+          // Already on homepage, just scroll
+          const el = document.getElementById(id);
+          if (el) {
+            const navHeight = 80;
+            const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
+            window.scrollTo({ top, behavior: "smooth" });
+          }
+        } else {
+          // Navigate to homepage first, then scroll
+          router.push("/");
+          // Wait for navigation, then scroll
+          setTimeout(() => {
+            const el = document.getElementById(id);
+            if (el) {
+              const navHeight = 80;
+              const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
+              window.scrollTo({ top, behavior: "smooth" });
+            }
+          }, 300);
+        }
+      } else if (href === "/") {
+        e.preventDefault();
+        if (pathname === "/") {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+          router.push("/");
+        }
+      }
+      // For non-hash, non-home links (like /partners), let default behavior handle it
+    },
+    [pathname, router]
+  );
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${scrolled || pathname !== "/"
         ? "bg-guardian-black/95 backdrop-blur-sm shadow-lg"
         : "bg-transparent"
         }`}
@@ -30,7 +81,11 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex-shrink-0 flex items-center gap-2">
+          <a
+            href="/"
+            onClick={(e) => handleNavClick(e, "/")}
+            className="flex-shrink-0 flex items-center gap-2"
+          >
             <span className="text-lg sm:text-xl font-black tracking-[0.2em] text-white uppercase">
               Guardian
             </span>
@@ -45,6 +100,7 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="text-sm font-medium text-white/80 hover:text-white transition-colors"
               >
                 {link.label}
@@ -62,7 +118,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden relative z-50 flex flex-col justify-center items-center w-10 h-10 gap-1.5"
+            className="md:hidden relative z-[110] flex flex-col justify-center items-center w-10 h-10 gap-1.5"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
@@ -84,7 +140,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden fixed inset-0 bg-guardian-black/98 transition-all duration-300 ${mobileOpen
+        className={`md:hidden fixed inset-0 z-[105] bg-guardian-black transition-all duration-300 ${mobileOpen
           ? "opacity-100 pointer-events-auto"
           : "opacity-0 pointer-events-none"
           }`}
@@ -95,7 +151,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className="text-2xl font-bold text-white hover:text-guardian-red transition-colors"
-              onClick={() => setMobileOpen(false)}
+              onClick={(e) => handleNavClick(e, link.href)}
             >
               {link.label}
             </a>
@@ -114,3 +170,4 @@ export default function Navbar() {
     </nav>
   );
 }
+
